@@ -88,7 +88,7 @@ if (window.self === window.top) {
 } else {
 	
 	
-	sdk.setContent("<h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6>");
+	sdk.setContent("<img src="pic_trulli.jpg" alt="Trulli" width="500" height="333">");
 	sdk.getContent(function (content) {
 		var quill = new Quill('#editor-container', {
 			theme: 'snow'
