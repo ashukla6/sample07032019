@@ -29,21 +29,5 @@ function load()
 {
 var storedvalue= localStorage.getItem('text');
 }
-var fieldvalue= document.getElementById('textfield').value;
-sdk.getContent(function save() {
-		var quill = new Quill('textfield'});
-		quill.root.innerHTML = fieldvalue;
-		function saveText() {
-			var html = quill.root.innerHTML;
-			sdk.setContent(html);
-			sdk.setSuperContent('This is super content: ' + html);
 
-			sdk.getData(function (data) {
-				var numberOfEdits = data.numberOfEdits || 0;
-				sdk.setData({
-					numberOfEdits: numberOfEdits + 1
-				});
-			});
-		}
-		quill.on('text-change', saveText);
 	});
