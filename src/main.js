@@ -1,56 +1,25 @@
-require('../node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.css');
+var BlockSDK = require('blocksdk');
+if (window.self === window.top) {
+	document.body.innerText = 'This application is for use in the Salesforce Marketing Cloud Content Builder Editor only.';
+} else {
+	var sdk = new BlockSDK();
+	sdk.getContent(function (content) {
+		var quill = new Quill('#editor-container', {
+			theme: 'snow'
+		});
+		quill.root.innerHTML = content;
+		function saveText() {
+			var html = quill.root.innerHTML;
+			sdk.setContent(html);
+			sdk.setSuperContent('This is super content: ' + html);
 
-var SDK = require('blocksdk');
-var sdk = new SDK();
-var fieldvalue;
-
-function debounce (func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-}
-
-
-function load()
-{
-var storedvalue= localStorage.getItem('text');
-}
-function x1 () {
-	document.getElementById('textfield').value = fieldvalue;
-	
-} 
-
-
-function x2()
-{
-	 fieldvalue= document.getElementById('textfield').value;
-	if (!fieldvalue) {
-		return;
-	}
-	sdk.setContent(fieldvalue);
-	sdk.setData({
-		fieldvalue: fieldvalue
+			sdk.getData(function (data) {
+				var numberOfEdits = data.numberOfEdits || 0;
+				sdk.setData({
+					numberOfEdits: numberOfEdits + 1
+				});
+			});
+		}
+		quill.on('text-change', saveText);
 	});
-localStorage.setItem('key1',fieldvalue);
-	
 }
-
-sdk.getData(function (data) {
-	fieldvalue = data.fieldvalue || localStorage.getItem('key1');
-	x1();
-	
-	x2();
-});
-
-document.getElementById('workspace').addEventListener("input", function () {
-	debounce(x2, 500)();
-	});
