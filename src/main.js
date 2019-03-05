@@ -4,7 +4,7 @@ if (window.self === window.top) {
 } else {
 	var sdk = new BlockSDK();
 	sdk.getContent(function (content) {
-		var quill = new Quill('#editor-container', {
+		var quill = new Quill('#editor', {
 			theme: 'snow'
 		});
 		quill.root.innerHTML = content;
