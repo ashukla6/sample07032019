@@ -15,7 +15,7 @@
 	
 	var sdk = new BlockSDK();
 	sdk.getContent(function (content) {
-		var quill = new Quill('#editor', {
+		var quill = new Quill('#content', {
     theme: 'snow'
   });
 		quill.root.innerHTML = content;
