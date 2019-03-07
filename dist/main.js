@@ -73,11 +73,12 @@ var SDK = __webpack_require__(19);
 var sdk = new SDK();
 sdk.setContent(document.getElementById("editor1").innerHTML);
 	
-CKEDITOR.instances.editor1.on('change', function() { 
-alert("Hello");
-var test =  CKEDITOR.instances.yourInstanceName.getData();
-	sdk.setContent(test);
-});
+var i = 0;
+	
+for (var i in CKEDITOR.instances) {
+        CKEDITOR.instances[i].on('change', function() {alert('value changed!!')});
+    }
+	
 
 
 fetch('/appID').then(function (res) {
