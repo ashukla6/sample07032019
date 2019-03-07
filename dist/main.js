@@ -74,6 +74,7 @@ var sdk = new SDK();
 sdk.setContent(document.getElementById("editor1").innerHTML);
 	
 CKEDITOR.instances.editor1.on('change', function() { 
+alert("Hello");
 var test =  CKEDITOR.instances.yourInstanceName.getData();
 	sdk.setContent(test);
 });
