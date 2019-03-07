@@ -98,9 +98,7 @@ if (window.self === window.top) {
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
-		quill.setHTML('<!-- Intro 1A 650 START. To change the background colour, edit the section *bgcolor="#00a1cc"*  -->
-                          
-                          <table bgcolor="#00a1cc" width="650" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 650px; margin:auto;" class="width320">
+		quill.setHTML('<table bgcolor="#00a1cc" width="650" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 650px; margin:auto;" class="width320">
                 <tr>
                   <td valign="top" bgcolor="#00a1cc">
                     <table width="325" border="0" cellspacing="0" cellpadding="0" style="width: 325px; padding: 15px;" class="width320" align="left">
