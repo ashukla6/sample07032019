@@ -98,6 +98,7 @@ if (window.self === window.top) {
 		alert(quill.root.innerHTML);
 		function saveText() {
 			var html = quill.root.innerHTML;
+			alert(html);
 			sdk.setContent(html);
 			sdk.setSuperContent('This is super content: ' + html);
 
