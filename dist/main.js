@@ -98,16 +98,13 @@ if (window.self === window.top) {
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
-var quill = new Quill('#editor', {
-	  modules: {
-		toolbar: toolbarOptions
-	  },
-	  theme: 'snow'
-	});
-
-	alert(quill.root.innerHTML);
+		var quill = new Quill('#editor', { modules: { toolbar: [] }, readOnly: true, theme: 'bubble'} );
+var $target = $('#editor');
+var $content = JSON.parse($target[0].innerText);
+quill.setContents($content);
+		alert($content);
 		function saveText() {
-			var html = quill.root.innerHTML;
+			var html = $content;
 			alert(html);
 			sdk.setContent(html);
 			sdk.setSuperContent('This is super content: ' + html);
