@@ -71,9 +71,9 @@ __webpack_require__(1);
 
 var SDK = __webpack_require__(19);
 var sdk = new SDK();
+sdk.setContent(document.getElementById("editor1").innerHTML);
 
-var htmlcontent = document.getElementById("editor1");
-alert(htmlcontent);
+
 
 fetch('/appID').then(function (res) {
 	return res.text();
