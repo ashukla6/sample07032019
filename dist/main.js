@@ -84,17 +84,13 @@ if (window.self === window.top) {
 		['showHtml']
 	];
 
-// 	var quill = new Quill('#editor', {
-// 	  modules: {
-// 		toolbar: toolbarOptions
-// 	  },
-// 	  theme: 'snow'
-// 	});
-	var quill = new Quill('#editor', { modules: { toolbar: [] }, theme: 'snow'} );
-var target = $('#editor');
-var content = JSON.parse(target[0].innerText);
-quill.setContents(content);
-		alert(content);
+	var quill = new Quill('#editor', {
+	  modules: {
+		toolbar: toolbarOptions
+	  },
+	  theme: 'snow'
+	});
+	
 		
 		
 	
@@ -103,7 +99,11 @@ quill.setContents(content);
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
-		
+		var quill = new Quill('#editor', { modules: { toolbar: [] }, theme: 'snow'} );
+var target = $('#editor');
+var content = JSON.parse(target[0].innerText);
+quill.setContents(content);
+		alert(content);
 		function saveText() {
 			var html = quill.root.innerHTML
 			alert(html);
