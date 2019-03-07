@@ -99,6 +99,11 @@ if (window.self === window.top) {
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
+		quill.setContents([
+  { insert: 'Hello ' },
+  { insert: 'World!', attributes: { bold: true } },
+  { insert: '\n' }
+]);
 		function saveText() {
 			var html = quill.root.innerHTML
 			alert(html);
