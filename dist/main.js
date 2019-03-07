@@ -95,7 +95,7 @@ if (window.self === window.top) {
 
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
-
+		alert(quill.root.innerHTML);
 		function saveText() {
 			var html = quill.root.innerHTML;
 			sdk.setContent(html);
