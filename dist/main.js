@@ -69,65 +69,7 @@
 
 var BlockSDK = __webpack_require__(1);
 
-if (window.self === window.top) {
-	document.body.innerText = 'This application is for use in the Salesforce Marketing Cloud Content Builder Editor only.';
-} else {
-	var toolbarOptions = [
-		['bold', 'italic', 'underline', 'strike'],
-		['blockquote', 'code-block'],
-		[{ 'list': 'ordered'}, { 'list': 'bullet' }],
-		[{ 'indent': '-1'}, { 'indent': '+1' }],
-		[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-		[{ 'color': [] }, { 'background': [] }],
-		['clean'],
-		['link', 'image', 'video'],
-		['showHtml']
-	];
 
-	var quill = new Quill('#editor', {
-	  modules: {
-		toolbar: toolbarOptions
-	  },
-	  theme: 'snow'
-	});
-	
-		
-		
-	
-	var sdk = new BlockSDK(['blocktester.herokuapp.com', 'localhost', 'marketingcloudapps.com'], true);
-
-	sdk.getContent(function (content) {
-		quill.root.innerHTML = content;
-		alert(quill.root.innerHTML);
-		quill.setContents([
-  { insert: 'Hello ' },
-  { insert: 'World!', attributes: { bold: true } },
-  { insert: '\n' }
-]);
-		function saveText() {
-			var html = quill.root.innerHTML
-			alert(html);
-			sdk.setContent(html);
-			sdk.setSuperContent('This is super content: ' + html);
-
-			sdk.getData(function (data) {
-				var numberOfEdits = data.numberOfEdits || 0;
-				sdk.setData({
-					numberOfEdits: numberOfEdits + 1
-				});
-			});
-
-			sdk.getCentralData(function (central) {
-				var totalNumberOfEdits = central.totalNumberOfEdits || 0;
-				sdk.setCentralData({
-					totalNumberOfEdits: totalNumberOfEdits + 1
-				});
-			});
-		}
-
-		quill.on('text-change', saveText);
-	});
-}
 
 
 /***/ }),
