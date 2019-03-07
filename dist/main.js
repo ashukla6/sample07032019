@@ -90,6 +90,11 @@ if (window.self === window.top) {
 // 	  },
 // 	  theme: 'snow'
 // 	});
+	var quill = new Quill('#editor', { modules: { toolbar: [] }, theme: 'snow'} );
+var target = $('#editor');
+var content = JSON.parse(target[0].innerText);
+quill.setContents(content);
+		alert(content);
 		
 		
 	
@@ -98,13 +103,9 @@ if (window.self === window.top) {
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
-		var quill = new Quill('#editor', { modules: { toolbar: [] }, readOnly: true, theme: 'bubble'} );
-var $target = $('#editor');
-var $content = JSON.parse($target[0].innerText);
-quill.setContents($content);
-		alert($content);
+		
 		function saveText() {
-			var html = $content;
+			var html = quill.root.innerHTML
 			alert(html);
 			sdk.setContent(html);
 			sdk.setSuperContent('This is super content: ' + html);
