@@ -72,7 +72,11 @@ __webpack_require__(1);
 var SDK = __webpack_require__(19);
 var sdk = new SDK();
 sdk.setContent(document.getElementById("editor1").innerHTML);
-
+	
+CKEDITOR.instances.editor1.on('change', function() { 
+var test =  CKEDITOR.instances.yourInstanceName.getData();
+	sdk.setContent(test);
+});
 
 
 fetch('/appID').then(function (res) {
