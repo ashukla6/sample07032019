@@ -84,12 +84,12 @@ if (window.self === window.top) {
 		['showHtml']
 	];
 
-	var quill = new Quill('#editor', {
-	  modules: {
-		toolbar: toolbarOptions
-	  },
-	  theme: 'snow'
-	});
+// 	var quill = new Quill('#editor', {
+// 	  modules: {
+// 		toolbar: toolbarOptions
+// 	  },
+// 	  theme: 'snow'
+// 	});
 		
 		
 	
