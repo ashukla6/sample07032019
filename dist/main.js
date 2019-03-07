@@ -90,12 +90,20 @@ if (window.self === window.top) {
 	  },
 	  theme: 'snow'
 	});
-
+		
+		quill.setContents([
+  { insert: 'Hello ' },
+  { insert: 'World!', attributes: { bold: true } },
+  { insert: '\n' }
+	]);
+		
+	sdk.setContent(quill.root.innerHTML);
+	
 	var sdk = new BlockSDK(['blocktester.herokuapp.com', 'localhost', 'marketingcloudapps.com'], true);
 
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
-		alert(quill.root.innerHTML);
+	alert(quill.root.innerHTML);
 		function saveText() {
 			var html = quill.root.innerHTML;
 			alert(html);
