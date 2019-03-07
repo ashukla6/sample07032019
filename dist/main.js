@@ -68,9 +68,11 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var BlockSDK = __webpack_require__(1);
+var sdk = new SDK();
 
 
-
+var html = document.getElementsByName("editor1");
+	sdk.setContent(html);
 
 /***/ }),
 /* 1 */
