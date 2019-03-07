@@ -98,11 +98,46 @@ if (window.self === window.top) {
 	sdk.getContent(function (content) {
 		quill.root.innerHTML = content;
 		alert(quill.root.innerHTML);
-		quill.setContents([
-  { insert: 'Hello ' },
-  { insert: 'World!', attributes: { bold: true } },
-  { insert: '\n' }
-	]);
+		quill.setHTML('<!-- Intro 1A 650 START. To change the background colour, edit the section *bgcolor="#00a1cc"*  -->
+                          
+                          <table bgcolor="#00a1cc" width="650" border="0" align="center" cellpadding="0" cellspacing="0" style="width: 650px; margin:auto;" class="width320">
+                <tr>
+                  <td valign="top" bgcolor="#00a1cc">
+                    <table width="325" border="0" cellspacing="0" cellpadding="0" style="width: 325px; padding: 15px;" class="width320" align="left">
+                      <tr>
+                        <td valign="top" bgcolor="#00a1cc">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td valign="top" style="font-family: Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 20px; color: #FFFFFF; line-height: 22px;">{{Intro1A_Title290}}</td>
+                            </tr>
+                            <tr>
+                              <td valign="top" height="15" style="color:#00a1cc; font-size:15px; line-height:15px; height: 15px; mso-line-height-rule: exactly;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td valign="top" style="font-family: Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; color: #FFFFFF;">{{Intro1A_Body290}}</td>
+                            </tr>
+                            <tr>
+                              <td valign="top" height="15" style="color:#00a1cc; font-size:15px; line-height:15px; height: 15px; mso-line-height-rule: exactly;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td valign="top" style="font-family: Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; color: #FFFFFF;">{{Intro1A_Button290}}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!--[if mso]></td><td valign="top">
+                                                              <![endif]-->
+                    <table width="325" border="0" cellspacing="0" cellpadding="0" style="width: 325px;" class="width320" align="right">
+                      <tr>
+                        <td valign="top" bgcolor="#00a1cc" style="font-family: Verdana, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; color: #FFFFFF;">{{Intro1A_Img325}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>');
+
 	alert(quill.root.innerHTML);
 		function saveText() {
 			var html = quill.root.innerHTML;
