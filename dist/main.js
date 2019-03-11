@@ -84,7 +84,7 @@ for (var i in CKEDITOR.instances) {
 
 	});
 	
-	 CKEDITOR.instances[i].on('change', function() { sdk.setContent(CKEDITOR.instances[i].updateElement()) });
+	
     }
 	
 	 
